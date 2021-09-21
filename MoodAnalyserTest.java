@@ -9,13 +9,13 @@ public class MoodAnalyserTest {
 	 * Method to check if sentence contains word sad
 	 */
 	public void sadCheck() {
-		MoodAnalyser moodAnalyser = new MoodAnalyser("I am in sad Mood");
+		MoodAnalyser moodAnalyser = new MoodAnalyser("");
 		String mood;
 		try {
 			mood = moodAnalyser.analyseMood();
 			Assert.assertEquals("SAD", mood);
 		} catch (MoodAnalyserException e) {
-
+			System.out.println("Empty Mood: " + e);
 		}
 
 	}
@@ -27,13 +27,14 @@ public class MoodAnalyserTest {
 	public void happyCheck() {
 		MoodAnalyser moodAnalyser;
 
-		moodAnalyser = new MoodAnalyser("I am in Any Mood");
+		moodAnalyser = new MoodAnalyser(null);
 
 		String mood;
 		try {
 			mood = moodAnalyser.analyseMood();
 			Assert.assertEquals("HAPPY", mood);
 		} catch (Exception e) {
+			System.out.println(e);
 		}
 
 	}
