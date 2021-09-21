@@ -6,28 +6,36 @@ public class MoodAnalyserTest {
 
 	@Test
 	/*
-	 * Method to check if sentance contains word sad
+	 * Method to check if sentence contains word sad
 	 */
 	public void sadCheck() {
 		MoodAnalyser moodAnalyser = new MoodAnalyser("I am in sad Mood");
 		String mood;
-		mood = moodAnalyser.analyseMood();
-		Assert.assertEquals("SAD", mood);
+		try {
+			mood = moodAnalyser.analyseMood();
+			Assert.assertEquals("SAD", mood);
+		} catch (MoodAnalyserException e) {
+
+		}
+
 	}
 
 	/*
-	 * Method to check if sentance contains word happy
+	 * Method to check if sentence contains word happy
 	 */
 	@Test
 	public void happyCheck() {
-		MoodAnalyser moodAnalyser = new MoodAnalyser("I am in Any Mood");
-		String mood;
+		MoodAnalyser moodAnalyser;
 
-		mood = moodAnalyser.analyseMood();
-		Assert.assertEquals("HAPPY", mood);
+		moodAnalyser = new MoodAnalyser("I am in Any Mood");
+
+		String mood;
+		try {
+			mood = moodAnalyser.analyseMood();
+			Assert.assertEquals("HAPPY", mood);
+		} catch (Exception e) {
+		}
 
 	}
-
-	
 
 }
